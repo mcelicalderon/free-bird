@@ -41,6 +41,6 @@ ActiveRecord::Schema.define(version: 20160325235857) do
 
   add_index "species", ["genus_id"], name: "index_species_on_genus_id", using: :btree
 
-  add_foreign_key "genera", "families"
-  add_foreign_key "species", "genera"
+  add_foreign_key "genera", "families", on_delete: :cascade
+  add_foreign_key "species", "genera", on_delete: :cascade
 end
