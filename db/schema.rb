@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160325222517) do
+ActiveRecord::Schema.define(version: 20160325235857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,5 +31,16 @@ ActiveRecord::Schema.define(version: 20160325222517) do
 
   add_index "genres", ["family_id"], name: "index_genres_on_family_id", using: :btree
 
+  create_table "species", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "genre_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "species", ["genre_id"], name: "index_species_on_genre_id", using: :btree
+
   add_foreign_key "genres", "families"
+  add_foreign_key "species", "genres"
 end

@@ -2,14 +2,17 @@ require 'rails_helper'
 
 RSpec.describe "genres/index", type: :view do
   before(:each) do
+    family = Family.create!(
+      name: 'Family'
+    )
     assign(:genres, [
       Genre.create!(
         :name => "Name",
-        :family => nil
+        :family => family
       ),
       Genre.create!(
         :name => "Name",
-        :family => nil
+        :family => family
       )
     ])
   end
@@ -17,6 +20,5 @@ RSpec.describe "genres/index", type: :view do
   it "renders a list of genres" do
     render
     assert_select "tr>td", :text => "Name".to_s, :count => 2
-    assert_select "tr>td", :text => nil.to_s, :count => 2
   end
 end
