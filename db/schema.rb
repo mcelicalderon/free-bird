@@ -22,25 +22,25 @@ ActiveRecord::Schema.define(version: 20160325235857) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "genres", force: :cascade do |t|
+  create_table "genera", force: :cascade do |t|
     t.string   "name"
     t.integer  "family_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "genres", ["family_id"], name: "index_genres_on_family_id", using: :btree
+  add_index "genera", ["family_id"], name: "index_genera_on_family_id", using: :btree
 
   create_table "species", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "genre_id"
+    t.integer  "genus_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  add_index "species", ["genre_id"], name: "index_species_on_genre_id", using: :btree
+  add_index "species", ["genus_id"], name: "index_species_on_genus_id", using: :btree
 
-  add_foreign_key "genres", "families"
-  add_foreign_key "species", "genres"
+  add_foreign_key "genera", "families"
+  add_foreign_key "species", "genera"
 end

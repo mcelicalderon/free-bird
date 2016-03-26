@@ -69,12 +69,12 @@ class SpeciesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def species_params
-      params.require(:species).permit(:name, :description, :genre_id)
+      params.require(:species).permit(:name, :description, :genus_id)
     end
 
     def species
-      return Family.find(params[:family_id]).genres.find(params[:genre_id]).species if params[:family_id].present?
-      return Genre.find(params[:genre_id]).species if params[:genre_id].present?
+      return Family.find(params[:family_id]).genera.find(params[:genus_id]).species if params[:family_id].present?
+      return Genus.find(params[:genus_id]).species if params[:genus_id].present?
       Species.all
     end
 end

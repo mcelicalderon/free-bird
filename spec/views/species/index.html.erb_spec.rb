@@ -5,20 +5,20 @@ RSpec.describe "species/index", type: :view do
     family = Family.create!(
       name: 'Family'
     )
-    genre = Genre.create!(
-      name: 'Genre',
+    genus = Genus.create!(
+      name: 'Genus',
       family: family
     )
     assign(:species, [
       Species.create!(
         :name => "Name",
         :description => "MyText",
-        :genre => genre
+        :genus => genus
       ),
       Species.create!(
         :name => "Name",
         :description => "MyText",
-        :genre => genre
+        :genus => genus
       )
     ])
   end

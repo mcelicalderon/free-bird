@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe "genres/show", type: :view do
+RSpec.describe "genera/show", type: :view do
   before(:each) do
-    @genre = assign(:genre, Genre.create!(
+    @genus = assign(:genus, Genus.create!(
       :name => "Name",
       :family => nil
     ))

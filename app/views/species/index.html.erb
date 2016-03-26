@@ -8,7 +8,7 @@
       <th>Name</th>
       <th>Description</th>
       <th>Family</th>
-      <th>Genre</th>
+      <th>Genus</th>
       <th colspan="4"></th>
     </tr>
   </thead>
@@ -18,8 +18,8 @@
       <tr>
         <td><%= species.name %></td>
         <td><%= species.description %></td>
-        <td><%= species.genre.family.name %></td>
-        <td><%= species.genre.name %></td>
+        <td><%= species.genus.family.name %></td>
+        <td><%= species.genus.name %></td>
         <td><%= link_to 'Show', species %></td>
         <td><%= link_to 'Edit', edit_species_path(species) %></td>
         <td><%= link_to 'Destroy', species, method: :delete, data: { confirm: 'Are you sure?' } %></td>

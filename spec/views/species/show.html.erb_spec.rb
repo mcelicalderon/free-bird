@@ -5,7 +5,7 @@ RSpec.describe "species/show", type: :view do
     @species = assign(:species, Species.create!(
       :name => "Name",
       :description => "MyText",
-      :genre => nil
+      :genus => nil
     ))
   end
 

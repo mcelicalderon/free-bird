@@ -5,7 +5,7 @@ RSpec.describe "species/new", type: :view do
     assign(:species, Species.new(
       :name => "MyString",
       :description => "MyText",
-      :genre => nil
+      :genus => nil
     ))
   end
 
@@ -18,7 +18,7 @@ RSpec.describe "species/new", type: :view do
 
       assert_select "textarea#species_description[name=?]", "species[description]"
 
-      assert_select "input#species_genre_id[name=?]", "species[genre_id]"
+      assert_select "input#species_genus_id[name=?]", "species[genus_id]"
     end
   end
 end

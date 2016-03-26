@@ -1,3 +1,3 @@
 class Species < ActiveRecord::Base
-  belongs_to :genre
+  belongs_to :genus
 end

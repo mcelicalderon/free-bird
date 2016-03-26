@@ -1,4 +1,4 @@
 class Family < ActiveRecord::Base
-  has_many :genres
-  has_many :species, through: :genres
+  has_many :genera
+  has_many :species, through: :genera
 end

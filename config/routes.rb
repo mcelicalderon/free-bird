@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :species
-  resources :genres
+  resources :genera
   resources :families do
-    resources :genres do
+    resources :genera do
       resources :species
     end
   end
