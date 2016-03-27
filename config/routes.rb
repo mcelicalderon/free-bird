@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :periods
   resources :species
   resources :genera
   resources :families do
