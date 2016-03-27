@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :segments
+  resources :segment_types
   resources :zones
   resources :periods
   resources :species

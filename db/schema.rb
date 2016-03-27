@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160327224117) do
+ActiveRecord::Schema.define(version: 20160327231642) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,23 @@ ActiveRecord::Schema.define(version: 20160327224117) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "segment_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "segments", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "segment_type_id"
+    t.integer  "zone_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "segments", ["segment_type_id"], name: "index_segments_on_segment_type_id", using: :btree
+  add_index "segments", ["zone_id"], name: "index_segments_on_zone_id", using: :btree
+
   create_table "species", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -56,5 +73,7 @@ ActiveRecord::Schema.define(version: 20160327224117) do
   end
 
   add_foreign_key "genera", "families", on_delete: :cascade
+  add_foreign_key "segments", "segment_types", on_delete: :cascade
+  add_foreign_key "segments", "zones", on_delete: :cascade
   add_foreign_key "species", "genera", on_delete: :cascade
 end

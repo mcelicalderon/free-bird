@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Segment Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @segment_types.each do |segment_type| %>
+      <tr>
+        <td><%= segment_type.name %></td>
+        <td><%= link_to 'Show', segment_type %></td>
+        <td><%= link_to 'Edit', edit_segment_type_path(segment_type) %></td>
+        <td><%= link_to 'Destroy', segment_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Segment type', new_segment_type_path %>
