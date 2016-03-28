@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :census_dates
   resources :segments
   resources :segment_types
   resources :zones
