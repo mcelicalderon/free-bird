@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :species_records
   resources :day_descriptions
   resources :segments
   resources :segment_types

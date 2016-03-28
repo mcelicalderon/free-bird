@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328014409) do
+ActiveRecord::Schema.define(version: 20160328015506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,21 @@ ActiveRecord::Schema.define(version: 20160328014409) do
 
   add_index "species", ["genus_id"], name: "index_species_on_genus_id", using: :btree
 
+  create_table "species_records", force: :cascade do |t|
+    t.integer  "count"
+    t.integer  "day_description_id"
+    t.integer  "period_id"
+    t.integer  "segment_id"
+    t.integer  "species_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "species_records", ["day_description_id"], name: "index_species_records_on_day_description_id", using: :btree
+  add_index "species_records", ["period_id"], name: "index_species_records_on_period_id", using: :btree
+  add_index "species_records", ["segment_id"], name: "index_species_records_on_segment_id", using: :btree
+  add_index "species_records", ["species_id"], name: "index_species_records_on_species_id", using: :btree
+
   create_table "zones", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -84,4 +99,8 @@ ActiveRecord::Schema.define(version: 20160328014409) do
   add_foreign_key "segments", "segment_types", on_delete: :cascade
   add_foreign_key "segments", "zones", on_delete: :cascade
   add_foreign_key "species", "genera", on_delete: :cascade
+  add_foreign_key "species_records", "day_descriptions"
+  add_foreign_key "species_records", "periods"
+  add_foreign_key "species_records", "segments"
+  add_foreign_key "species_records", "species"
 end

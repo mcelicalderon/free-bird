@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Count:</strong>
+  <%= @species_record.count %>
+</p>
+
+<p>
+  <strong>Day description:</strong>
+  <%= @species_record.day_description %>
+</p>
+
+<p>
+  <strong>Period:</strong>
+  <%= @species_record.period %>
+</p>
+
+<p>
+  <strong>Segment:</strong>
+  <%= @species_record.segment %>
+</p>
+
+<p>
+  <strong>Species:</strong>
+  <%= @species_record.species %>
+</p>
+
+<%= link_to 'Edit', edit_species_record_path(@species_record) %> |
+<%= link_to 'Back', species_records_path %>
