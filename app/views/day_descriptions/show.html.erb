@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @day_description.date %>
+</p>
+
+<p>
+  <strong>Temperature:</strong>
+  <%= @day_description.temperature %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @day_description.description %>
+</p>
+
+<%= link_to 'Edit', edit_day_description_path(@day_description) %> |
+<%= link_to 'Back', day_descriptions_path %>
