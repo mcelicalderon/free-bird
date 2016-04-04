@@ -15,7 +15,7 @@
   <tbody>
     <% @day_descriptions.each do |day_description| %>
       <tr>
-        <td><%= day_description.date %></td>
+        <td><%= day_description.start_time %></td>
         <td><%= day_description.temperature %></td>
         <td><%= day_description.description %></td>
         <td><%= link_to 'Show', day_description %></td>

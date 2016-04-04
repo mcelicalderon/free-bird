@@ -11,18 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328015506) do
+ActiveRecord::Schema.define(version: 20160404035331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "census_dates", force: :cascade do |t|
+    t.date     "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "day_descriptions", force: :cascade do |t|
-    t.datetime "date"
     t.string   "temperature"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.time     "start_time"
+    t.integer  "census_date_id"
   end
+
+  add_index "day_descriptions", ["census_date_id"], name: "index_day_descriptions_on_census_date_id", using: :btree
 
   create_table "families", force: :cascade do |t|
     t.string   "name"
@@ -95,6 +104,7 @@ ActiveRecord::Schema.define(version: 20160328015506) do
     t.datetime "updated_at",  null: false
   end
 
+  add_foreign_key "day_descriptions", "census_dates", on_delete: :cascade
   add_foreign_key "genera", "families", on_delete: :cascade
   add_foreign_key "segments", "segment_types", on_delete: :cascade
   add_foreign_key "segments", "zones", on_delete: :cascade

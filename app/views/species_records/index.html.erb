@@ -18,7 +18,7 @@
     <% @species_records.each do |species_record| %>
       <tr>
         <td><%= species_record.count %></td>
-        <td><%= species_record.day_description.date %></td>
+        <td><%= species_record.day_description.start_time %></td>
         <td><%= species_record.period.start %> - <%= species_record.period.end %></td>
         <td><%= species_record.segment.name %></td>
         <td><%= species_record.species.name %></td>
